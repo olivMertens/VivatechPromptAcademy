@@ -94,6 +94,10 @@
     </Confirmation>
 }
 
+@if (_helpPopUpOpen)
+{
+    <Dialog></Dialog>
+}
 
 @if (_renamePopUpOpen)
 {
@@ -121,6 +125,7 @@
     private string? _sessionId;
     private string? _popUpText;
     private bool _deletePopUpOpen = false;
+    private bool _helpPopUpOpen = false;
     private bool _isDeleteAll = false;
     private bool _loadingComplete;
     private bool _renamePopUpOpen = false;
@@ -134,9 +139,7 @@
         await OnNavBarVisibilityUpdated.InvokeAsync();
     }
 
-    private Task HelpDialogToggle()
-    {
-    }
+
 
 
     async private Task ChangeTheme()
@@ -154,6 +157,13 @@
                 await LoadCurrentChatAsync();
             });
         };
+    }
+
+    private void HelpDialogToggle()
+    {
+
+        _helpPopUpOpen = true;
+
     }
 
     private void OpenConfirmation(string id, string title, bool isDeleteAll = false)
