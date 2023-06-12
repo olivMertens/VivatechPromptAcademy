@@ -91,6 +91,17 @@ public class ChatService
     }
 
     /// <summary>
+    /// User delete all chat sessions
+    /// </summary>
+
+    public async Task DeleteAllChatSessionsAsync(String? sessionIds)
+    {
+        _sessions.Clear();
+
+        await _cosmosDbService.DeleteAllSessionsAndMessagesAsync(sessionIds);
+    }
+
+    /// <summary>
     /// User deletes a chat session
     /// </summary>
     public async Task DeleteChatSessionAsync(string? sessionId)
