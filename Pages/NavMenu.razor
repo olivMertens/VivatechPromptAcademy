@@ -5,7 +5,7 @@
 
 <div class="h-100 d-flex flex-column" style="min-width: 275px;">
 
-    <div class="flex-column navbar navbar-dark bg-primary">
+    <div class="flex-column navbar bg-primary">
         <div class="container-fluid justify-content-between">
             <div class="flex-fill">
                     <object type="image/svg+xml" data="img/icon/prompt-academy-logo.svg">
@@ -46,6 +46,19 @@
                             </span>
                         </NavLink>
                     </div>
+                    <div class="nav-item py-2 d-grid">
+                    <select class="form-control" id="Promptengineering" @bind="selectedOption">
+                            <option value="">Please select a prompt example</option>
+                            <option value="mechanical" data-content="Mechanical engineering is a branch of engineering that focuses on the design, construction, and operation of machines and mechanical systems.
+                             It is a field of engineering that applies principles of physics and materials science for the analysis, design, manufacturing, and maintenance of mechanical systems. Mechanical engineering simulations are used to model and analyze the behavior of complex mechanical systems.
+                             This type of simulation is often used to answer questions about the performance of a system, such as how a particular design will perform under different conditions or how changes in design parameters will affect the system's performance. ChatGPT can be used to simulate questions related to mechanical engineering, such as 'What is the most efficient way to design a machine?'' or
+                             'What are the best materials to use for a particular application?" title="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="electrical" data-content="" title="">Electrical Engineering</option>
+                            <option value="civil" data-content="" title="">Civil Engineering</option>
+                            <option value="chemical" data-content="" title="">Chemical Engineering</option>
+                            <option value="computer" data-content="" title="">Computer Engineering</option>
+                    </select>
+                     </div>
                     <div class="row row-cols-1 g-2 px-2 d-flex flex-column align-items-start">
                         @foreach (var session in ChatSessions)
                         {
@@ -131,6 +144,9 @@
 
     private string? _sessionId;
     private string? _popUpText;
+
+    private string? selectedOption { get; set; }
+
     private bool _deletePopUpOpen = false;
     private bool _helpPopUpOpen = false;
     private bool _isDeleteAll = false;
