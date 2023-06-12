@@ -96,7 +96,11 @@
 
 @if (_helpPopUpOpen)
 {
-    <Dialog></Dialog>
+    <Confirmation Caption="Help"
+        Message="It's help"
+        OnClose="@OnConfirmationClose"
+        Type="Confirmation.Category.Okay">
+    </Confirmation>
 }
 
 @if (_renamePopUpOpen)
