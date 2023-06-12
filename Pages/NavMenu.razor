@@ -39,6 +39,14 @@
                             </span>
                         </NavLink>
                     </div>
+                    <div class="nav-item py-2 d-grid">
+                        <NavLink style="cursor:pointer" class="btn btn-sm mx-1 btn-secondary d-flex flex-row align-items start" Match="NavLinkMatch.All" @onclick="@(e => DeleteChat())">
+                            <i class="bi bi-trash-fill"></i>
+                            <span class="flex-fill">
+                                Delete all the Chat
+                            </span>
+                        </NavLink>
+                    </div>
                     <div class="row row-cols-1 g-2 px-2 d-flex flex-column align-items-start">
                         @foreach (var session in ChatSessions)
                         {

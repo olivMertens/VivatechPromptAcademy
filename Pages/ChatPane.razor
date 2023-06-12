@@ -55,7 +55,7 @@
                     No Chats Available
                 </h4>
                 <p class="text-nowrap mb-0 fst-italic">
-                    Use the New Chat option to start a new chat.
+                    Use the "Create New Chat" option to start a new chat.
                 </p>
             </div>
         }
@@ -100,11 +100,6 @@
                                     <strong class="me-auto text-capitalize">
                                         @msg.Sender
                                     </strong>
-                                    @if(msg.Tokens is not null) {
-                                        <span class="me-2 badge rounded-pill bg-light">
-                                            Tokens: @msg.Tokens
-                                        </span>
-                                    }
                                     <small>
                                         @msg.TimeStamp.Humanize()
                                     </small>
