@@ -21,6 +21,7 @@
                 </button>
                 <button class="navbar-toggler border-0" @onclick="HelpDialog">
                     <i class="bi bi-patch-question"></i>
+                </button>
             </div>
         </div>
     } 
@@ -103,6 +104,28 @@
                             Start chatting with your helpful AI assistant.
                         </p>
                     </div>
+
+                        <h3>More a Art than a science</h3>
+                        <p>Prompt engineering is a process of creating a prompt, or a question, that encourages a user to take a desired action. It is a powerful tool for increasing user engagement and driving conversions. Here is an example of how to create a prompt engineering:</p>
+
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <h3>Step 1: Identify the Goal</h3>
+                            <p>The first step in creating a prompt engineering is to identify the goal. What action do you want the user to take? Do you want them to sign up for a newsletter, download an app, or make a purchase? Once you have identified the goal, you can move on to the next step.</p>
+                            </div>
+                            <div class="col-md-6">
+                            <h3>Step 2: Craft the Prompt</h3>
+                            <p>The next step is to craft the prompt. This is where you create the question or statement that will encourage the user to take the desired action. Make sure the prompt is clear and concise, and that it speaks to the user's needs. For example, if you want the user to sign up for a newsletter, you could create a prompt like "Sign up for our newsletter and get the latest updates!"</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <h3>Step 3: Test and Optimize</h3>
+                            <p>The final step is to test and optimize the prompt. This involves testing different versions of the prompt to see which one performs best. You can also use A/B testing to compare different versions of the prompt and determine which one is most effective. Once you have identified the best performing prompt, you can use it to drive conversions.</p>
+                            </div>
+                        </div>
+                        </div>
                 }
                 else
                 {
@@ -150,14 +173,17 @@
             <div class="input-group">
                 <button class="btn btn-primary">
                     <i class="bi bi-caret-down-fill"></i>
-                    <select class="form-control" id="engineeringForLLM" @bind="selectedOption">
-                            <option value="">Please select</option>
-                            <option value="mechanical">Mechanical Engineering</option>
-                            <option value="electrical">Electrical Engineering</option>
-                            <option value="civil">Civil Engineering</option>
-                            <option value="chemical">Chemical Engineering</option>
-                            <option value="computer">Computer Engineering</option>
-                        </select>
+                    <select class="form-control" id="Promptengineering" @bind="selectedOption">
+                            <option value="">Please select a prompt example</option>
+                            <option value="mechanical" data-content="Mechanical engineering is a branch of engineering that focuses on the design, construction, and operation of machines and mechanical systems.
+                             It is a field of engineering that applies principles of physics and materials science for the analysis, design, manufacturing, and maintenance of mechanical systems. Mechanical engineering simulations are used to model and analyze the behavior of complex mechanical systems.
+                             This type of simulation is often used to answer questions about the performance of a system, such as how a particular design will perform under different conditions or how changes in design parameters will affect the system's performance. ChatGPT can be used to simulate questions related to mechanical engineering, such as 'What is the most efficient way to design a machine?'' or
+                             'What are the best materials to use for a particular application?" title="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="electrical" data-content="" title="">Electrical Engineering</option>
+                            <option value="civil" data-content="" title="">Civil Engineering</option>
+                            <option value="chemical" data-content="" title="">Chemical Engineering</option>
+                            <option value="computer" data-content="" title="">Computer Engineering</option>
+                    </select>
                 </button>
                 <i class="bi bi-body-text input-group-text" aria-hidden="true"></i>
                 <input class="form-control form-control-sm" type="text" @bind="@UserPromptSet" @onkeydown="@Enter" @oninput="@((e) => { UserPrompt=e.Value?.ToString();})" rows="1" placeholder="<What is you prompt/ask ?>">
@@ -185,6 +211,8 @@
 
     [Parameter]
     public bool ShowHeader { get; set; }
+
+    public bool HelpDialogVisible { get; set; }
 
 	[Parameter]
     public EventCallback OnNavBarVisibilityUpdated { get; set; }

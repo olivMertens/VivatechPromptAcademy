@@ -12,9 +12,13 @@
                         Your browser does not support SVG
                     </object>
             </div>
+            <button class="navbar-toggler border-0" @onclick="HelpDialog">
+                    <i class="bi bi-patch-question"></i>
+            </button>
             <button class="navbar-toggler border-0" @onclick="ToggleNavMenu">
                 <i class="bi bi-arrow-right-square-fill"></i>
             </button>
+            
         </div>
     </div>
 
@@ -32,10 +36,10 @@
                         </NavLink>
                     </div>
                     <div class="nav-item py-2 d-grid">
-                        <NavLink style="cursor:pointer" class="btn btn-sm mx-1 btn-secondary d-flex flex-row align-items start" Match="NavLinkMatch.All" @onclick="@(e => DeleteChat())">
+                        <NavLink style="cursor:pointer" class="btn btn-sm mx-1 btn-secondary d-flex flex-row align-items start" Match="NavLinkMatch.All" @onclick="@(e => OpenConfirmation("","", true))">>
                             <i class="bi bi-trash-fill"></i>
                             <span class="flex-fill">
-                                Delete all the Chat
+                                Delete all Chats
                             </span>
                         </NavLink>
                     </div>
@@ -115,8 +119,10 @@
     public EventCallback OnThemeUpdated { get; set; }
 
     private string? _sessionId;
+    private string? _sessionIds;
     private string? _popUpText;
     private bool _deletePopUpOpen = false;
+    private bool _isDeleteAll = false;
     private bool _loadingComplete;
     private bool _renamePopUpOpen = false;
 
@@ -146,11 +152,16 @@
         };
     }
 
-    private void OpenConfirmation(string id, string title)
+    private void OpenConfirmation(string id, string title, bool isDeleteAll = false)
     {
         _deletePopUpOpen = true;
-        _sessionId = id;
-        _popUpText = $"Do you want to delete the chat \"{title}\"?";
+        _isDeleteAll = isDeleteAll;
+        if(isDeleteAll)
+            _popUpText = $"Do you want to delete all chats?";
+            _sessionId = Interface.EMPTY_SESSION;
+        else
+            _popUpText = $"Do you want to delete the chat \"{title}\"?";
+            _sessionId = id;
     }
 
     public void UpdateNavMenuDisplay(string reason = "")
@@ -171,6 +182,14 @@
         if (isOk)
         {
             _deletePopUpOpen = false;
+            if(_isDeleteAll)
+                foreach (Session in ChatSessions)
+                {
+                    _sessionIds.Add(session.SessionId.ToString());
+                }
+                await chatService.DeleteAllChatSessionsAsync(_sessionIds);
+
+            else
             await chatService.DeleteChatSessionAsync(_sessionId);
 
             _deletePopUpOpen = false;
