@@ -187,28 +187,9 @@ public class CosmosDbService
 
     public async Task DeleteAllSessionsAndMessagesAsync(params string[] sessionIds)
     {
-        TransactionalBatch batch = _container.CreateTransactionalBatch();
         foreach (var sessionId in sessionIds)
         {
-            PartitionKey partitionKey = new(sessionId);
-
-            QueryDefinition query = new QueryDefinition("SELECT VALUE c.id FROM c WHERE c.sessionId = @sessionId")
-                .WithParameter("@sessionId", sessionId);
-
-            FeedIterator<string> response = _container.GetItemQueryIterator<string>(query);
-
-            while (response.HasMoreResults)
-            {
-                FeedResponse<string> results = await response.ReadNextAsync();
-                foreach (var itemId in results)
-                {
-                    batch.DeleteItem(
-                        id: itemId,
-                        partitionKey: partitionKey
-                    );
-                }
-            }
+            await DeleteSessionAndMessagesAsync(sessionId);
         }
-        await batch.ExecuteAsync();
     }
 }

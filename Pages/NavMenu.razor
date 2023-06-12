@@ -119,7 +119,7 @@
     public EventCallback OnThemeUpdated { get; set; }
 
     private string? _sessionId;
-    private string? _sessionIds;
+    private string [] ? _sessionIds;
     private string? _popUpText;
     private bool _deletePopUpOpen = false;
     private bool _isDeleteAll = false;
@@ -157,11 +157,16 @@
         _deletePopUpOpen = true;
         _isDeleteAll = isDeleteAll;
         if(isDeleteAll)
+        {
             _popUpText = $"Do you want to delete all chats?";
             _sessionId = Interface.EMPTY_SESSION;
+        }
         else
+        {
             _popUpText = $"Do you want to delete the chat \"{title}\"?";
             _sessionId = id;
+        }
+
     }
 
     public void UpdateNavMenuDisplay(string reason = "")
@@ -183,14 +188,14 @@
         {
             _deletePopUpOpen = false;
             if(_isDeleteAll)
-                foreach (Session in ChatSessions)
+                foreach (var CurrentSession in ChatSessions)
                 {
-                    _sessionIds.Add(session.SessionId.ToString());
+                    await chatService.DeleteChatSessionAsync(CurrentSession.SessionId);
                 }
-                await chatService.DeleteAllChatSessionsAsync(_sessionIds);
 
-            else
+            else{
             await chatService.DeleteChatSessionAsync(_sessionId);
+            }
 
             _deletePopUpOpen = false;
 
