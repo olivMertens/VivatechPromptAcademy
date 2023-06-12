@@ -11,24 +11,21 @@
         <div class="navbar navbar-dark bg-primary">
             <div class="w-100 navbar navbar-dark bg-primary d-flex flex-row px-4 justify-content-between flex-nowrap">
                 <div class="d-flex flex-row justify-content-start">
-                   <object type="image/svg+xml" data="img/icon/prompt-academy-logo.svg">
+                   <object type="image/svg+xml" data="img/icon/prompt-academy-logo.svg" width="100px" height="40px">
                         Your browser does not support SVG
                     </object>
                     <span class="navbar-brand mb-0 ms-1 h1">Powered by <br/>Azure OpenAi </span>
                      <object type="image/svg+xml" data="img/azure.svg">
                         Your browser does not support SVG
                     </object>
-                     <object type="image/svg+xml" data="img/icon/openAIlogo.svg">
-                        Your browser does not support SVG
-                    </object>
                 </div>
 
-                <button class="" @onclick="HelpDialogToggle">
+                <button class="navbar-toggler border-0" @onclick="HelpDialogToggle">
                     <i class="bi bi-patch-question"></i>
                 </button>
                 <button class="navbar-toggler border-0" @onclick="ToggleNavMenu">
-                    <i class="bi bi-arrow-left-square-fill"></i>
-                </button>
+                <i class="bi bi-arrow-right-square-fill"></i>
+                 </button>
             </div>
         </div>
     } 
@@ -60,10 +57,10 @@
                 </p>
                 <p></p>
             </div>
+                        <div class="container">
                         <h3>More a Art than a science</h3>
                         <p>Prompt engineering is a process of creating a prompt, or a question, that encourages a user to take a desired action. It is a powerful tool for increasing user engagement and driving conversions. Here is an example of how to create a prompt engineering:</p>
 
-                        <div class="container">
                         <div class="row">
                             <div class="col-md-6">
                             <h3>Step 1: Identify the Goal</h3>

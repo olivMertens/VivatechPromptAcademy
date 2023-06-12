@@ -4,5 +4,6 @@
 
  :root {
     --bs-primary: #000000;
+    --bs-primary-rgb: rgb(0,0,0);
     --bs-dark-bg-subtle: #ffe600;
   }
