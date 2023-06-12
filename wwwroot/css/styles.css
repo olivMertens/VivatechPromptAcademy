@@ -1,0 +1,8 @@
+/*
+ * Custom CSS
+ */
+
+ :root {
+    --bs-primary: #000000;
+    --bs-dark-bg-subtle: #ffe600;
+  }
