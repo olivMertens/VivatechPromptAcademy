@@ -224,9 +224,9 @@
 
     private void HandleChange(ChangeEventArgs e)
         {
-            var selectedPromptValue = e.Value.ToString();
+            selectedPromptValue = e.Value.ToString();
             var dataAttribute = ((string)e.Value).Split(" ")[0];
-            UserPrompt = dataAttribute?.ToString();
+            UserPromptSet = dataAttribute?.ToString();
         }
 
 	async private Task ToggleNavMenu()
