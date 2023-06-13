@@ -19,3 +19,7 @@
     background-color: var(--bs-btn-bg);
     border-color: var(--bs-btn-border-color);
   }
+
+  .dropdown-item.active, .dropdown-item:active {
+    background-color: var(--bs-link-color);
+  }

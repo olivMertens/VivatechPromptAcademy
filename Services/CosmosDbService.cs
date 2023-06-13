@@ -180,16 +180,4 @@ public class CosmosDbService
         await batch.ExecuteAsync();
     }
 
-    /// <summary>
-    /// Batch deletes all existing chat sessions and related messages.
-    /// </summary>
-    /// <param name="sessionIds">Chat session identifiers used to flag messages and sessions for deletion.</param>
-
-    public async Task DeleteAllSessionsAndMessagesAsync(params string[] sessionIds)
-    {
-        foreach (var sessionId in sessionIds)
-        {
-            await DeleteSessionAndMessagesAsync(sessionId);
-        }
-    }
 }
