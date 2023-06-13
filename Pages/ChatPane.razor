@@ -179,9 +179,20 @@
                     <ul class="dropdown-menu" @onchange="HandleChange">
                         <li data-attribute="I want you to act as an AI writing tutor. I will provide you with a student who needs help improving their writing and your task is to use artificial intelligence tools, such as natural language processing, to give the student feedback on how they can improve their composition. You should also use your rhetorical knowledge and experience about effective writing techniques in order to suggest ways that the student can better express their thoughts and ideas in written form. My first request is 'I need somebody to help me edit my master's thesis.'"><a class="dropdown-item" href="#">AI Writing Tutor</a></li>
                         <li data-attribute="I want you to act as a career counselor. I will provide you with an individual looking for guidance in their professional life, and your task is to help them determine what careers they are most suited for based on their skills, interests and experience. You should also conduct research into the various options available, explain the job market trends in different industries and advice on which qualifications would be beneficial for pursuing particular fields. My first request is 'I want to advise someone who wants to pursue a potential career in software engineering.'"><a class="dropdown-item" href="#">Carreer Counselor</a></li>
-                        <li data-attribute="3"><a class="dropdown-item" href="#">Action</a></li>
-                        <li data-attribute="4"><a class="dropdown-item" href="#">Action</a></li>
-                        <li data-attribute="5"><a class="dropdown-item" href="#">Action</a></li>
+                        <li data-attribute="3"><a class="dropdown-item" href="#">ChatGPT prompt generator</a></li>
+                        <li data-attribute="4"><a class="dropdown-item" href="#">Cyber Security Specialist</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">English Translator and Improver</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Financial Analyst</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Interviewer</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Mental Health Adviser</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Motivational Coach</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Prompt Generator</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Public Speaking Coach</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Recruiter</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Senior Frontend Developer</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Social Media Manager</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Spoken English Teacher and Improver</a></li>
+                        <li data-attribute="5"><a class="dropdown-item" href="#">Web Design Consultant</a></li>
                     </ul>
                     </div>
                 <input class="form-control form-control-sm" type="text" @bind="@UserPromptSet" @onkeydown="@Enter" @oninput="@((e) => { UserPrompt=e.Value?.ToString();})" rows="1" placeholder="<What is you prompt/ask ?>">

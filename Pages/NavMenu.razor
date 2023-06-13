@@ -93,7 +93,8 @@
 
 @if (_helpPopUpOpen)
 {
-    <Confirmation Caption="Help"
+    <Confirmation Caption="Do you want some Help ?"
+        OnClose="@OnConfirmationClose"
         Message="<h3>Step 1: Identify the Goal</h3>
                 <p>The first step in creating a prompt engineering is to identify the goal. What action do you want the user to take? Do you want them to sign up for a newsletter, download an app, or make a purchase? Once you have identified the goal, you can move on to the next step.</p>
                 <h3>Step 2: Craft the Prompt</h3>
@@ -102,6 +103,7 @@
                 <h3>Step 3: Test and Optimize</h3>
                             <p>The final step is to test and optimize the prompt. This involves testing different versions of the prompt to see which one performs best. You can also use A/B testing to compare different versions of the prompt and determine which one is most effective. Once you have identified the best performing prompt, you can use it to drive conversions.</p>"
         Type="Confirmation.Category.Okay">
+        
     </Confirmation>
 }
 
