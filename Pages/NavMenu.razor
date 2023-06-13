@@ -47,8 +47,8 @@
                         </NavLink>
                     </div>
                     <div class="nav-item py-2 d-grid">
-                    <select class="form-control text-center" id="Promptengineering" @bind="selectedOption">
-                            <option value="">Prompt Selection</option>
+                    <InputSelect class="form-control text-center" id="Promptengineering" @bind-value="SelectedPrompt" TValue="string">
+                            <option value="" selected disabled>Select a Prompt Example</option>
                             <option value="mechanical" data-content="Mechanical engineering is a branch of engineering that focuses on the design, construction, and operation of machines and mechanical systems.
                              It is a field of engineering that applies principles of physics and materials science for the analysis, design, manufacturing, and maintenance of mechanical systems. Mechanical engineering simulations are used to model and analyze the behavior of complex mechanical systems.
                              This type of simulation is often used to answer questions about the performance of a system, such as how a particular design will perform under different conditions or how changes in design parameters will affect the system's performance. ChatGPT can be used to simulate questions related to mechanical engineering, such as 'What is the most efficient way to design a machine?'' or
@@ -57,7 +57,7 @@
                             <option value="civil" data-content="" title="">Civil Engineering</option>
                             <option value="chemical" data-content="" title="">Chemical Engineering</option>
                             <option value="computer" data-content="" title="">Computer Engineering</option>
-                    </select>
+                    </InputSelect>
                      </div>
                     <div class="row row-cols-1 g-2 px-2 d-flex flex-column align-items-start">
                         @foreach (var session in ChatSessions)
@@ -144,8 +144,6 @@
 
     private string? _sessionId;
     private string? _popUpText;
-
-    private string? selectedOption { get; set; }
 
     private bool _deletePopUpOpen = false;
     private bool _helpPopUpOpen = false;
@@ -396,4 +394,7 @@
         null => string.Empty,
         _ => text.Length > maxLength ? text.Substring(0, maxLength) + "..." : text
     };
+    [Parameter]
+    public string  SelectedPrompt { get; set; } = "Select a chat";
+        
 }
