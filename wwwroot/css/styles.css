@@ -13,3 +13,9 @@
     --bs-btn-hover-bg: #cbba19eb;
     --bs-btn-hover-border-color: #cbba19eb;
   }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: var(--bs-primary);
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-border-color);
+  }
