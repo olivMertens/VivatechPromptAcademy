@@ -4,7 +4,6 @@
 
 
 <div class="h-100 d-flex flex-column" style="min-width: 275px;">
-
     <div class="navbar navbar-dark bg-primary" style="background-color:#88949c">
         <div class="container-fluid justify-content-between">
             <div class="flex-fill">
@@ -18,7 +17,7 @@
                     </button>
             </div>
         </div>
-    </div>
+</div>
 
     <div class="flex-grow-1 flex-column justify-content-center overflow-y-auto overflow-x-hidden">
         @if (_loadingComplete == true)
@@ -209,13 +208,13 @@
         if (isOk)
         {
             _deletePopUpOpen = false;
-            if(_isDeleteAll)
+            if(_isDeleteAll){
                 foreach (var CurrentSession in ChatSessions)
                 {
                     _sessionId = CurrentSession.SessionId;
                     await chatService.DeleteChatSessionAsync(_sessionId);
                 }
-
+            }
             else{
             await chatService.DeleteChatSessionAsync(_sessionId);
             }
