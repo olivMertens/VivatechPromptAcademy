@@ -136,6 +136,9 @@
     [Parameter]
     public static List<Session> ChatSessions { get; set; } = new();
 
+    [Parameter]	
+    public static string? SelectedPrompt { get; set; } = null;
+
     [Parameter]
     public EventCallback OnNavBarVisibilityUpdated { get; set; }
 
