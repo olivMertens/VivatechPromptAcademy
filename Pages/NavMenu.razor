@@ -212,7 +212,8 @@
             if(_isDeleteAll)
                 foreach (var CurrentSession in ChatSessions)
                 {
-                    await chatService.DeleteChatSessionAsync(CurrentSession.SessionId);
+                    _sessionId = CurrentSession.SessionId;
+                    await chatService.DeleteChatSessionAsync(_sessionId);
                 }
 
             else{
