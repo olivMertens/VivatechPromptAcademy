@@ -6,8 +6,10 @@
     --bs-primary: #000000;
     --bs-primary-rgb:0,0,0;
     --bs-dark-bg-subtle: #ffe600;
+    --bs-link-color: #ffe600;
+    --bs-link-hover-color: #cbba19eb;
     --bs-btn-bg: #ffe600;
     --bs-btn-border-color: #ffe600;
-    --bs-btn-hover-bg: #ffe600;
-    --bs-btn-hover-border-color: #ffe600;
+    --bs-btn-hover-bg: #cbba19eb;
+    --bs-btn-hover-border-color: #cbba19eb;
   }
