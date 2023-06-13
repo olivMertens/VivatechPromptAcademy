@@ -7,7 +7,7 @@
         <NavMenu @ref="@NavMenu" OnChatClicked="LoadChatEventHandlerAsync" OnNavBarVisibilityUpdated="UpdateNavBarVisibility" SelectedPrompt="@SelectedPrompt" />
     }
     <section class="flex-grow-1">
-        <ChatPane @ref="@ChatPane" CurrentSession="@CurrentSession" UserPromptSet="@SelectedPrompt" OnChatUpdated="ForceRefreshAsync" OnNavBarVisibilityUpdated="UpdateNavBarVisibility" ShowHeader="@IsNavMenuCollapsed" />
+        <ChatPane @ref="@ChatPane" CurrentSession="@CurrentSession" OnChatUpdated="ForceRefreshAsync" OnNavBarVisibilityUpdated="UpdateNavBarVisibility" ShowHeader="@IsNavMenuCollapsed" />
     </section>
 </main>
 

@@ -203,9 +203,7 @@
     public EventCallback OnNavBarVisibilityUpdated { get; set; }
 
     private string? UserPrompt { get; set; }
-
-    [Parameter]
-    public string? UserPromptSet { get; set; }
+    private string? UserPromptSet { get; set; }
 	
     private List<Message>? _messagesInChat;
     private static event EventHandler<Session>? _onMessagePosted;
